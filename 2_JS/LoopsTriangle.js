@@ -1,8 +1,10 @@
 var h = 6; //height
-var triangle = "*";
+var triangle = "";
 
-for (var i = 1; i <= h; i++) {
-    for (var c = 1; c <= i; c++) {
-        console.log(triangle);
+for (var i = 0; i < h; i++) {
+    for (var c = 0; c < i; c++) {
+        triangle += "* ";
     }
+    triangle += "\n";
 }
+console.log(triangle);
