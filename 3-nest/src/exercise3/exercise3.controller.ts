@@ -11,10 +11,15 @@ export class Exercise3Controller {
     return this.e3.helloWorld(name);
   }
 
-  @Get("/loopsTriangle:height")
+  @Get("/loopsTriangle/:height")
   loopsTriangle(@Param('height') height:string) {
       var parsedHeight = parseInt(height);
       
     return this.e3.loopsTriangle(" ", parsedHeight);
+  }
+
+  @Get("/primeNumber/:num")
+  primeNumber(@Param('num') num:number, prime:boolean) {
+    return this.e3.primeNumber(num, prime);
   }
 }
