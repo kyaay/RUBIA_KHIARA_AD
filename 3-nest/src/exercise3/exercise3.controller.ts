@@ -22,4 +22,11 @@ export class Exercise3Controller {
   primeNumber(@Param('num') num:number, prime:boolean) {
     return this.e3.primeNumber(num, prime);
   }
+
+  @Get('/addKhiarCar')
+  test(){
+    this.e3.addKhiarCar();
+    //return;
+  }
+
 }

@@ -1,7 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { car } from './car.model';
 
 @Injectable()
 export class Exercise3Service {
+    
+    private cars: Map<string, car> = new Map<string, car>();
+
     helloWorld(name:string){
         return "Hello there, "+ name + "!";
     }
@@ -34,4 +38,21 @@ export class Exercise3Service {
         }
         return;
     }
+
+    addKhiarCar(){
+        var khiaraCar: car;
+        khiaraCar = new car("Jeep", "pink", {name: "Goodyear", radius:18});
+        this.cars.set("khiara", khiaraCar);
+        this.logAllCars();
+    }
+
+    logAllCars(){
+      for(const[key, car] of this.cars.entries()){
+        console.log(key);
+        car.log();
+      }
+    }
+
+
+
 }
