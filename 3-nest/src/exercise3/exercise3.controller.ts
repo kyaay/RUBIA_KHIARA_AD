@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { Exercise3Service } from './exercise3.service';
 
 @Controller('exercise3')
@@ -23,10 +23,19 @@ export class Exercise3Controller {
     return this.e3.primeNumber(num, prime);
   }
 
-  @Get('/addKhiarCar')
-  test(){
-    this.e3.addKhiarCar();
-    //return;
+  @Post('/addCar')
+  addCar(@Body() body:any){
+    return this.e3.addCar(body);
+  }
+
+  @Get('/addKhiarCar2')
+  test2() {
+    return this.e3.addKhiarCar2();
+  }
+
+  @Get('/logCars')
+  logCars() {
+    return this.e3.logAllCars();
   }
 
 }

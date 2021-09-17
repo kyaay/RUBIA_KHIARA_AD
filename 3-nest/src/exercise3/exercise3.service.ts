@@ -39,7 +39,15 @@ export class Exercise3Service {
         return;
     }
 
-    addKhiarCar(){
+    
+    addCar(car:any){
+        var newCar: car;
+        newCar = new car(car?.model, car?.color, {name: car?.wheels.name, radius:car.wheels.radius});
+        this.cars.set(car.id, newCar);
+        this.logAllCars();
+    }
+
+    addKhiarCar2(){
         var khiaraCar: car;
         khiaraCar = new car("Jeep", "pink", {name: "Goodyear", radius:18});
         this.cars.set("khiara", khiaraCar);
