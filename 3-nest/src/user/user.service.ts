@@ -25,11 +25,27 @@ export class UserService {
         this.users.set(4, new User(4, "shufo", 23, "shufo@gmail.com", "1234"))
     }
 
-    register(){
-        var newUser: User;
+    register(User:any){
+        var newUser = User;
         newUser = new User(User?.id, User?.name, User?.age, User?.email, User?.password);
+        this.users.set(User.id, User);
+        this.logAllUser();
 
-        this.users.set(User.id, newUser);
+    }
+
+    logAllUser(){
+        for(const[key, user] of this.users.entries()){
+            console.log(key);
+            user.displayInfo();
+        }
+    }
+
+    deleteUser(id:number){
+
+        if(this.users.has(id))
+        this.users.delete(id);
+        else console.log("This user has already been deleted. ID Number: " + id);
     }
 
 }
+
