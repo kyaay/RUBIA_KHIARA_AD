@@ -1,3 +1,5 @@
+import * as admin from 'firebase-admin';
+
 import { Injectable } from '@nestjs/common';
 import { User } from './user.resource/user.model'
 import { CRUDReturn } from './user.resource/crud_return.interface';
@@ -7,15 +9,10 @@ const DEBUG: boolean = true;
 @Injectable()
 export class UserService {
   private users: Map<string, User> = new Map<string, User>();
-
+  private DB = admin.firestore();
   constructor() {
     this.users = Helper.populate();
   }
-
-
-  
-
-
 
   register(body: any): CRUDReturn {
     try {
@@ -49,14 +46,40 @@ export class UserService {
     }
   }
 
-  getOne(id: string): CRUDReturn {
-    if (this.users.has(id)) {
-      return { success: true, data: this.users.get(id).toJson() };
-    } else
-      return {
-        success: false,
-        data: `User ${id} is not in database`,
-      };
+  async getOne(id: string): Promise<CRUDReturn> {
+    try {
+        var result = await this.DB.collection("users").doc(id).get();
+        if(result.exists){
+            return {
+                success: false,
+                data: result.data(),
+            };
+        }
+        else{
+            return {
+                success: false,
+                data: `User ${id} does not exist in database!`,
+            };
+        }
+        return {
+            success: false,
+            data: 'result.data()',
+        };}catch(error){
+            console.log(error);
+            return {
+                success: false,
+                data: error,
+            }
+        }
+    
+
+    // if (this.users.has(id)) {
+    //   return { success: true, data: this.users.get(id).toJson() };
+    // } else
+    //   return {
+    //     success: false,
+    //     data: `User ${id} is not in database`,
+    //   };
   }
 
   getAll(): CRUDReturn {
@@ -187,6 +210,9 @@ export class UserService {
 
   saveToDB(user: User): boolean {
     try {
+      var potato = this.DB.collection("users").doc(user.id).set(user.toJson());
+      console.log(potato);
+
       this.users.set(user.id, user);
       return this.users.has(user.id);
     } catch (error) {
