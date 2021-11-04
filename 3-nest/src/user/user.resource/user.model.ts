@@ -1,3 +1,4 @@
+import * as admin from 'firebase-admin';
 import { CRUDReturn } from './crud_return.interface';
 import { Helper } from './helper';
 
@@ -8,12 +9,17 @@ export class User {
     private email: string;
     private password: string;
 
-    constructor(name: string, age: number, email: string, password: string) {
-        this.id = Helper.generateUID();
+    constructor(name: string, age: number, email: string, password: string, id: string) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;
         this.password = password;
+    }
+
+    static async retrieve(id:String){
+      var DB = admin.firestore();
+      //var result = await DB.collection("users").doc(id).get();
     }
 
     login(password: string): CRUDReturn {
