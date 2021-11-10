@@ -1,11 +1,16 @@
-<!-- <div class="mainContent">
+<div class="mainContent">
     <div class="login">
         <div class="inputs">
             <label for="EMAIL">Email</label>
             <input type="email" name="EMAIL" [formControl]="fCEmail" />
+            <!-- <input type="email" name="EMAIL" #email/> -->
             <label for="PASSWORD">Password</label>
             <input type="password" name="PASSWORD" [formControl]="fCPassword" />
+            <!-- <input type="password" name="PASSWORD" #password/> -->
         </div>
-        <button (click)="login()">LOGIN</button>
+        <div class="action">
+            <button (click)="login()">LOGIN</button>
+            <button (click)="nav('register')">REGISTER</button>
+        </div>
     </div>
-</div> -->
+</div>
