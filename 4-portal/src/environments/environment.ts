@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: "https://d167-2001-4454-6ad-9200-3536-29fd-861c-a5f6.ngrok.io"
+  API_URL: "http://localhost:3000"
 };
 
 /*

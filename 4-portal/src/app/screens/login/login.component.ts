@@ -14,12 +14,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  fCEmail = new FormControl();
-  fCPassword = new FormControl();
+  fcEmail = new FormControl();
+  fcPassword = new FormControl();
+  requestResult = '';
 
   async login() {
-    var result = await this.api.get(environment.API_URL + "/user/all").toPromise();
-      console.log(result);
+    var result:any = await this.api
+      .post(environment.API_URL + "/user/login",
+      {
+        "email": this.fcEmail.value, "password": this.fcPassword.value
+      })
+      .toPromise();
+    if(result.success){
+      this.nav('home');
+    }
 
     // if (this.fCEmail.value == "khiara@gmail.com" && this.fCPassword.value == "1234"){
     //   this.nav('home');
