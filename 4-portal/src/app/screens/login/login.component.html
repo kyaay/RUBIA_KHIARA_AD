@@ -3,10 +3,8 @@
         <div class="inputs">
             <label for="EMAIL">Email</label>
             <input type="email" name="EMAIL" [formControl]="fcEmail" />
-            <!-- <input type="email" name="EMAIL" #email/> -->
             <label for="PASSWORD">Password</label>
             <input type="password" name="PASSWORD" [formControl]="fcPassword" />
-            <!-- <input type="password" name="PASSWORD" #password/> -->
         </div>
         <p>{{requestResult | json}}</p>
         <!-- <div>

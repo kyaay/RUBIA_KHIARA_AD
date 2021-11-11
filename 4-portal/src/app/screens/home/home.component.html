@@ -1,3 +1,17 @@
 <div class="mainContent">
     <div class="listofUsers">LIST OF USERS</div>
+    <table class="table">
+        <thead>
+            <tr class="NE">
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="list" *ngFor="let user of users;">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

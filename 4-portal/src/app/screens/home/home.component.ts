@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  users = [
+    { name: 'khiara', email: "khiara@mail.com" },
+    { name: 'arjilo', email: 'arjilo@gmail.com' },
+  ];
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
