@@ -15,12 +15,12 @@
             <p>{{ error }}</p>
             <p>{{registerForm.value | json}}</p>
             <p>{{ registerForm.status }}</p>
-            <button type="submit" [disabled]="!registerForm.valid">
-          CREATE ACCOUNT
-        </button>
         </form>
         <div class="actions">
-            <button (click)="nav('login')">BACK TO LOGIN</button>
+            <button type="submit" [disabled]="!registerForm.valid" class="create">
+                CREATE ACCOUNT
+            </button>
+            <button (click)="nav('login')" class="backLogin">BACK TO LOGIN</button>
         </div>
     </div>
 </div>

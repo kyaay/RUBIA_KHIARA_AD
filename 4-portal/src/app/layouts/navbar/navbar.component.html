@@ -8,6 +8,7 @@
         <h5 (click)="nav('login')">Login</h5>
     </div> -->
     <div class="site-user">
-        <h5 (click)="nav('login')">Logout</h5>
+        <h5 *ngIf="auth.authenticated" (click)='logout()'>Logout</h5>
+        <h5 *ngIf="!auth.authenticated" (click)="nav('login')">Login</h5>
     </div>
 </div>

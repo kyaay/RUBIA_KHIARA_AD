@@ -10,9 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { ApiService } from './shared/api.service';
-import { DefaultLayoutComponent } from './layout/default-layout/default-layout.component';
+import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { UsersComponent } from './screens/users/users.component';
+import { AuthService } from './shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { UsersComponent } from './screens/users/users.component';
     ReactiveFormsModule,
     SharedModule,
   ],
-  providers: [ApiService],
+  providers: [ApiService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
