@@ -1,21 +1,48 @@
 <div class="mainContent">
-    <div class="listofUsers">
-        LIST OF USERS
-        <table class="table">
+
+    <div *ngIf="viewedUserIndex == undefined" class="backgroundTbl">
+        <div class="webdesigntuts-workshop">
+            <input class="forInput" type="text" placeholder="Search here..." required (change)="getData(searchVal.value)" #searchVal>
+            <button (click)="searchVal.value=''" (click)="ngOnInit();" class="clear">Clear</button>
+        </div>
+        <table>
             <thead>
-                <tr class="NE">
+                <tr>
+                    <th>
+                        <H3 style="font-size: 20pt; padding-top: 20px;">Users</H3>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>No</th>
                     <th>Name</th>
-                    <th>Age</th>
                     <th>Email</th>
+                    <th>Age</th>
+                    <th>Actions</th>
                 </tr>
-            </thead>
-            <tbody>
-                <tr class="list" *ngFor="let user of users;">
-                    <td>{{user.name}}</td>
-                    <td>{{user.age}}</td>
-                    <td>{{user.email}}</td>
-                </tr>
-            </tbody>
+
+                <tbody>
+                    <tr *ngFor="let user of users; index as i">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.age }}</td>
+                        <td>
+                            <fa-icon (click)="deleteUser(i)" [icon]="faTrash"></fa-icon>
+                            <fa-icon (click)="viewUserData(i)" [icon]="faEdit"></fa-icon>
+                        </td>
+                    </tr>
+                </tbody>
+                <div class="reset">
+                    <button (click)="resetDB()">Reset</button>
+                    <button (click)="nav('login')">Reset</button>
+                </div>
+
+                <!-- </thead> -->
         </table>
     </div>
+    <edit-user *ngIf="viewedUserIndex != undefined" [user]="users[viewedUserIndex]" (backEvent)="handleBackEvent($event)"></edit-user>
+    <!-- <div class="reset">
+        <button (click)="resetDB()">Reset</button>
+    </div> -->
 </div>

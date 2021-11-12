@@ -14,6 +14,8 @@ import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { UsersComponent } from './screens/users/users.component';
 import { AuthService } from './shared/auth.service';
+import { EditComponent } from './screens/edit/edit.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { AuthService } from './shared/auth.service';
     DefaultLayoutComponent,
     NavbarComponent,
     UsersComponent,
+    EditComponent,
   ],
   imports: [
     HttpClientModule,
@@ -31,6 +34,7 @@ import { AuthService } from './shared/auth.service';
     AppRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    FontAwesomeModule,
   ],
   providers: [ApiService, AuthService],
   bootstrap: [AppComponent]

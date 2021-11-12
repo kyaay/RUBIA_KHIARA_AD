@@ -8,28 +8,60 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    .listofUsers {
+    .backgroundTbl {
         background-color: #edc7b7;
         opacity: 90%;
-        width: 500px;
-        height: 400px;
+        width: 850px;
+        height: 500px;
         border-radius: 24px;
         padding: 24px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        .table {
-            border: 2px, black, solid;
-            display: flex;
-            flex-direction: column;
-            NE {
-                padding-bottom: 4px;
-                padding-top: 4px;
+        // justify-content: space-between;
+        .tbody {
+            padding-top: 20px;
+        }
+        table {
+            color: 2px black;
+            width: 100%;
+            tr {
+                padding: 16px;
             }
-            list {
-                padding-top: 8px;
-                padding-bottom: 8px;
+            td {
+                outline: 1px #333 solid;
+                padding: 8px;
+                fa-icon {
+                    padding-right: 12px;
+                    cursor: pointer;
+                }
             }
         }
+    }
+}
+
+.reset button {
+    background-color: white;
+    width: 50%;
+    height: 25px;
+    border-radius: 8px;
+    border-color: #C8A2C8;
+    transition-duration: 0.4s;
+}
+
+.reset button:hover {
+    background-color: blueviolet;
+    color: white;
+}
+
+.webdesigntuts-workshop {
+    input {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        width: 20%;
+    }
+    button {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        width: 20%;
     }
 }

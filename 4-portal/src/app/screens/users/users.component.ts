@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { User } from 'src/app/model/user.model';
 import { ApiService } from 'src/app/shared/api.service';
@@ -15,7 +16,8 @@ export class UsersComponent implements OnInit {
   faTrash = faTrash;
   faEdit = faEdit;
   viewedUserIndex:number | undefined;
-  constructor(private api: ApiService) {}
+  // router: any;
+  constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.getData();
@@ -77,5 +79,8 @@ export class UsersComponent implements OnInit {
       });
     }
     return temp;
+  }
+  nav(destination: string) {
+    this.router.navigate([destination]);
   }
 }

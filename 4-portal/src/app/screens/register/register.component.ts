@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
           this.nav('home');
         } else {
           this.error = data.data;
-          console.log(this.error);
+          alert(this.error);
         }
       });
     }
