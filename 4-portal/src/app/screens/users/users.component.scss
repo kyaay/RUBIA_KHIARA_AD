@@ -1,0 +1,30 @@
+.mainContent {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    .listofusers {
+        background-color: white;
+        width: 600px;
+        height: 400px;
+        border-radius: 24px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .table {
+            border: 2px, black, solid;
+            display: flex;
+            flex-direction: column;
+            NE {
+                padding-bottom: 4px;
+                padding-top: 4px;
+            }
+            list {
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+        }
+    }
+}
