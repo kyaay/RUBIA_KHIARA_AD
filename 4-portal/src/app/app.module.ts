@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { ApiService } from './shared/api.service';
 import { DefaultLayoutComponent } from './layout/default-layout/default-layout.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { UsersComponent } from './screens/users/users.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
     HomeComponent,
     RegisterComponent,
     DefaultLayoutComponent,
-    NavbarComponent
+    NavbarComponent,
+    UsersComponent,
   ],
   imports: [
     HttpClientModule,

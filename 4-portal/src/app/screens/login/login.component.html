@@ -1,19 +1,26 @@
 <div class="mainContent">
     <div class="login">
+        <h1>WELCOME!</h1>
         <div class="inputs">
-            <label for="EMAIL">Email</label>
-            <input type="email" name="EMAIL" [formControl]="fcEmail" />
-            <label for="PASSWORD">Password</label>
-            <input type="password" name="PASSWORD" [formControl]="fcPassword" />
+            <div class="email">
+                <label for="EMAIL" required>Email</label>
+                <br>
+                <input type="email" name="EMAIL" [formControl]="fcEmail" />
+            </div>
+            <div class="password">
+                <label for="PASSWORD">Password</label>
+                <br>
+                <input type="password" name="PASSWORD" [formControl]="fcPassword" />
+            </div>
         </div>
-        <p>{{requestResult | json}}</p>
+        <!-- <p>{{requestResult | json}}</p> -->
         <!-- <div>
             {{ fcEmail.value }}
             {{ fcPassword.value }}
         </div> -->
         <div class="action">
-            <button (click)="login()">LOGIN</button>
-            <button (click)="nav('register')">REGISTER</button>
+            <button (click)="login()" class="loginb">LOGIN</button>
+            <button (click)="nav('register')" class="register">REGISTER</button>
         </div>
     </div>
 </div>

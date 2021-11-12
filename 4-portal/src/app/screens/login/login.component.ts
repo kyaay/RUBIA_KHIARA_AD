@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { empty } from 'rxjs';
 import { ApiService } from 'src/app/shared/api.service';
 import { environment } from 'src/environments/environment';
 
@@ -25,9 +26,22 @@ export class LoginComponent implements OnInit {
           "email": this.fcEmail.value, "password": this.fcPassword.value
         }
       );
-    if(result.success){
+    if(result.empty){
+      alert("No fields must be empty");
+    }
+    else if (result.success) {
       this.nav('home');
     }
+    else {
+      alert("Incorrect Credentials!");
+    }
+    // if(result.success){
+    //     this.nav('home');
+    //   }
+    //   else {
+    //     alert("Incorrect Credentials!");
+    //   }
+    
 
     // if (this.fCEmail.value == "khiara@gmail.com" && this.fCPassword.value == "1234"){
     //   this.nav('home');
