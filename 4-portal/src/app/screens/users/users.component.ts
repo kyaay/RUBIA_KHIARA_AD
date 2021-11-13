@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
   faTrash = faTrash;
   faEdit = faEdit;
   viewedUserIndex:number | undefined;
+
   // router: any;
   constructor(private api: ApiService, private router: Router) {}
 
@@ -56,10 +57,10 @@ export class UsersComponent implements OnInit {
    this.viewedUserIndex = i;
   }
 
-  async resetDB(){
-    var result = await this.api.patch('/user/reset');
-    this.getData();
-  }
+  // async resetDB(){
+  //   var result = await this.api.patch('/user/reset');
+  //   this.getData();
+  // }
   async getData(term?: string) {
     if (term == undefined || term == null || term=='') {
       this.users = await this.getAll();

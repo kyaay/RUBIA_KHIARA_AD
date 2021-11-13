@@ -1,5 +1,5 @@
 .nav-body {
-    height: 60px;
+    height: 80px;
     width: 100vw;
     background-color: blueviolet;
     display: grid;
@@ -9,7 +9,9 @@
     // justify-items: center;
     color: lightgray;
     .site-title {
+        font-size: 20pt;
         padding-left: 20%;
+        cursor: pointer;
         h3 {
             color: lightgray;
         }
